@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+    <meta charset="utf-8" />
+        <title>Mes Messages</title>
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     <h:body>
+      <h:outputText value="Mes Messages" />
+
+<p:dataTable var="car" value="#{userBean.getMessagebyuser(1)}">
+    <p:column headerText="Message">
+        <h:outputText value="#{car.msg}" />
+    </p:column>
+ 
+    <p:column headerText="Sender">
+        <h:outputText value="#{car.sender.nom}" />
+    </p:column>
+    
+    <!-- 
+    <p:column headerText="Membre">
+        <h:outputText value="#{car.user.nom}" />
+    </p:column> 
+    
+    -->
+    
+    
+    
+ <p:column>
+ <h:form id="form">
+        <p:commandButton value="Terminée"  action="#{tacheBean.modifdatereal(car.id)}" icon="pi pi-check" />
+        </h:form>
+    </p:column>
+</p:dataTable>
+
+	</h:body>
+</html>
